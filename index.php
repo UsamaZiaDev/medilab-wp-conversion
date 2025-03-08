@@ -13,37 +13,27 @@
  */
 
 get_header();
+ 
 	$dirPath = get_template_directory_uri() . "/assets/";
-?>
 
+	$heroData = get_field("hero_section");
+	$heroCardsData = $heroData["icons_cards_group"];
+
+	$aboutData = get_field("about_section");
+?>
 
 
 
 <main class="main">
 
 	<!-- Hero Section -->
-	<section id="hero" class="d-none hero section light-background">
-
-	<img src="<?php echo $dirPath . 'img/hero-bg.jpg'?>" alt="" data-aos="fade-in">
-
+	<section id="hero" class="d-non hero section light-background">
+	<img src="<?php echo $heroData["section_background_image"]; ?>" alt="" data-aos="fade-in">
 	<div class="container position-relative">
-
 		<div class="welcome position-relative" data-aos="fade-down" data-aos-delay="100">
-
-			<?php 
-			
-				$heroData = get_field("hero_section");
-				$heroCardsData = $heroData["icons_cards_group"];
-				echo "<pre>";
-					print_r($heroData);
-				echo "</pre>";
-			
-			?>
-
 		<h2><?php echo $heroData['title']; ?></h2>
 		<p><?php echo $heroData['sub_title']; ?></p>
 		</div><!-- End Welcome -->
-
 		<div class="content row gy-4">
 		<div class="col-lg-4 d-flex align-items-stretch">
 			<div class="why-box" data-aos="zoom-out" data-aos-delay="200">
@@ -73,60 +63,44 @@ get_header();
 			</div>
 		</div>
 		</div><!-- End  Content-->
+	</div>
+	</section>
+	<!-- /Hero Section -->
+
+	<!-- About Section -->
+	<section id="about" class="d-non about section">
+
+	<div class="container">
+
+		<div class="row gy-4 gx-5">
+
+		<div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="200">
+			<img src="<?php echo $aboutData["video_thumbnail"]; ?>" class="img-fluid" alt="">
+			<a href="<?php echo $aboutData["video_url"]; ?>" class="glightbox pulsating-play-btn"></a>
+		</div>
+
+		<div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
+			<h3> <?php echo $aboutData["title"]; ?> </h3>
+			<p>  <?php echo $aboutData["sub_title"]; ?> </p>
+
+			<ul>
+				<?php 
+					foreach( $aboutData["icon_list_group"] as $data){
+						set_query_var("icon_list_data", $data);
+						get_template_part( "/templates-part/icon-list");
+					}	
+				?>
+			</ul>
+		</div>
+
+		</div>
 
 	</div>
 
 	</section>
-	<!-- /Hero Section -->
+	<!-- /About Section -->
 
-<!-- About Section -->
-<section id="about" class="d-none about section">
-
-  <div class="container">
-
-	<div class="row gy-4 gx-5">
-
-	  <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="200">
-		<img src="<?php echo $dirPath . 'img/about.jpg'?>" class="img-fluid" alt="">
-		<a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
-	  </div>
-
-	  <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
-		<h3>About Us</h3>
-		<p>
-		  Dolor iure expedita id fuga asperiores qui sunt consequatur minima. Quidem voluptas deleniti. Sit quia molestiae quia quas qui magnam itaque veritatis dolores. Corrupti totam ut eius incidunt reiciendis veritatis asperiores placeat.
-		</p>
-		<ul>
-		  <li>
-			<i class="fa-solid fa-vial-circle-check"></i>
-			<div>
-			  <h5>Ullamco laboris nisi ut aliquip consequat</h5>
-			  <p>Magni facilis facilis repellendus cum excepturi quaerat praesentium libre trade</p>
-			</div>
-		  </li>
-		  <li>
-			<i class="fa-solid fa-pump-medical"></i>
-			<div>
-			  <h5>Magnam soluta odio exercitationem reprehenderi</h5>
-			  <p>Quo totam dolorum at pariatur aut distinctio dolorum laudantium illo direna pasata redi</p>
-			</div>
-		  </li>
-		  <li>
-			<i class="fa-solid fa-heart-circle-xmark"></i>
-			<div>
-			  <h5>Voluptatem et qui exercitationem</h5>
-			  <p>Et velit et eos maiores est tempora et quos dolorem autem tempora incidunt maxime veniam</p>
-			</div>
-		  </li>
-		</ul>
-	  </div>
-
-	</div>
-
-  </div>
-
-</section><!-- /About Section -->
-
+	
 <!-- Stats Section -->
 <section id="stats" class="d-none stats section light-background">
 
@@ -902,33 +876,6 @@ get_header();
 </section><!-- /Contact Section -->
 
 </main>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <?php
