@@ -1743,3 +1743,9 @@ footer#footer section{
   padding-top: 0;
   padding-bottom: 0;
 }
+.custom-logo-link img{
+  max-height: 100px;
+  max-width: 300px;
+  object-fit: contain;
+  width: 100%;
+}
