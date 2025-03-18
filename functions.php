@@ -129,17 +129,29 @@ add_action( 'after_setup_theme', 'uzml_medilab_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function uzml_medilab_widgets_init() {
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Sidebar', 'uzml-medilab' ),
-			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'uzml-medilab' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
+
+	$sidebars = array(
+		"footer-left-sidebar" => esc_html__("Footer Left Sidebar", "uzml-medilab"),
+		"footer-menu-1"		  => esc_html__("Footer Menu 1", "uzml-medilab"),
+		"footer-menu-2"		  => esc_html__("Footer Menu 2", "uzml-medilab"),
+		"footer-menu-3"		  => esc_html__("Footer Menu 3", "uzml-medilab"),
+		"footer-menu-4"		  => esc_html__("Footer Menu 4", "uzml-medilab"),
 	);
+
+	foreach( $sidebars as $id => $name ){
+		register_sidebar(
+			array(
+				'name'          => $name,
+				'id'            => $id,
+				'description'   => esc_html__( 'Add widgets here.', 'uzml-medilab' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
+			)
+		);
+	}
+
 }
 add_action( 'widgets_init', 'uzml_medilab_widgets_init' );
 

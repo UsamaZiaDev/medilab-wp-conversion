@@ -34,7 +34,7 @@ get_header();
 <main class="main">
 
 	<!-- Hero Section -->
-	<section id="hero" class=" hero section light-background">
+	<section id="hero" class=" hero section light-background ">
 	<img src="<?php echo $heroData["section_background_image"]; ?>" alt="" data-aos="fade-in">
 	<div class="container position-relative">
 		<div class="welcome position-relative" data-aos="fade-down" data-aos-delay="100">
@@ -75,7 +75,7 @@ get_header();
 	<!-- /Hero Section -->
 
 	<!-- About Section -->
-	<section id="about" class=" about section">
+	<section id="about" class=" about section ">
 
 	<div class="container">
 
@@ -108,7 +108,7 @@ get_header();
 	<!-- /About Section -->
 	
 	<!-- Stats Section -->
-	<section id="stats" class=" stats section light-background">
+	<section id="stats" class=" stats section light-background ">
 		<div class="container" data-aos="fade-up" data-aos-delay="100">
 			<div class="row gy-4">
 				<?php
@@ -123,7 +123,7 @@ get_header();
 	<!-- /Stats Section -->
 
 	<!-- Services Section -->
-	<section id="services" class=" services section">
+	<section id="services" class=" services section ">
 		<!-- Section Title -->
 		<div class="container section-title" data-aos="fade-up">
 			<h2><?php echo $services_section["title"] ?></h2>
@@ -144,7 +144,7 @@ get_header();
 	<!-- /Services Section -->
 
 	<!-- Appointment Section -->
-	<section id="appointment" class=" appointment section">
+	<section id="appointment" class=" appointment section ">
 		<!-- Section Title -->
 		<div class="container section-title" data-aos="fade-up">
 			<h2><?php echo $appointmentSection["title"] ?></h2>
@@ -160,7 +160,7 @@ get_header();
 	<!-- /Appointment Section -->
 
 	<!-- Departments Section -->
-	<section id="departments" class=" departments section">
+	<section id="departments" class=" departments section ">
 		<!-- Section Title -->
 		<div class="container section-title" data-aos="fade-up">
 			<h2> <?php echo $departmentsSection["title"] ?> </h2>
@@ -221,7 +221,7 @@ get_header();
 	<!-- /Departments Section -->
 
 	<!-- Doctors Section -->
-	<section id="doctors" class=" doctors section">
+	<section id="doctors" class=" doctors section ">
 		<!-- Section Title -->
 		<div class="container section-title" data-aos="fade-up">
 			<h2><?php echo $doctorsSection["title"]; ?></h2>
@@ -242,7 +242,7 @@ get_header();
 	<!-- /Doctors Section -->
 
 	<!-- Faq Section -->
-	<section id="faq" class=" faq section light-background">
+	<section id="faq" class=" faq section light-background ">
 		<!-- Section Title -->
 		<div class="container section-title" data-aos="fade-up">
 			<h2><?php echo $faqSection["title"]; ?></h2>
@@ -268,7 +268,7 @@ get_header();
 	<!-- /Faq Section -->
 
 	<!-- Testimonials Section -->
-	<section id="testimonials" class=" testimonials section">
+	<section id="testimonials" class=" testimonials section ">
 
 	<div class="container">
 
@@ -318,7 +318,7 @@ get_header();
 	<!-- /Testimonials Section -->
 
 	<!-- Gallery Section -->
-	<section id="gallery" class=" gallery section">
+	<section id="gallery" class=" gallery section ">
 
 		<!-- Section Title -->
 		<div class="container section-title" data-aos="fade-up">
@@ -345,7 +345,7 @@ get_header();
 	<!-- /Gallery Section -->
 
 	<!-- Contact Section -->
-	<section id="contact" class="contact section">
+	<section id="contact" class="contact section ">
 
 		<!-- Section Title -->
 		<div class="container section-title" data-aos="fade-up">
