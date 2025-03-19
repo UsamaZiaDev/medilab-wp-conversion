@@ -195,6 +195,11 @@ function uzml_medilab_scripts() {
 add_action( 'wp_enqueue_scripts', 'uzml_medilab_scripts' );
 
 /**
+ * TGM plugin activation.
+ */
+require get_template_directory() . '/inc/tgm/class-tgm-plugin-activation.php';
+require get_template_directory() . '/inc/tgm/install-plugins.php';
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
