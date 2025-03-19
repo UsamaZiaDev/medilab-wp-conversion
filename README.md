@@ -39,6 +39,10 @@ This theme includes an **acf-json** folder inside the theme directory. This feat
   - Any changes made in ACF will be saved in this folder, ensuring portability across installations.
   - No need to manually import/export field groups in the ACF settings.
 
+- ### 📄 ACF JSON Usage  
+ ![Add ACF JSON File](https://github.com/user-attachments/assets/b23fb6a5-6b07-431a-b38d-60c9070d1c75)
+
+
 ## 📘 License
 This project uses the **Medilab** template by **BootstrapMade**, which is free for personal use with proper attribution. This conversion is for **learning and portfolio purposes only** — not for commercial use.
 
