@@ -159,13 +159,37 @@ add_action( 'widgets_init', 'uzml_medilab_widgets_init' );
  * Enqueue scripts and styles.
  */
 function uzml_medilab_scripts() {
+
+	// ✅ Enqueue Theme Stylesheet
+	$styles = array(
+		'uzml-fonts' => 'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap',
+		'uzml-bootstrap' => '/assets/vendor/bootstrap/css/bootstrap.min.css',
+		'uzml-bootstrap-icons' => '/assets/vendor/bootstrap-icons/bootstrap-icons.css',
+		'uzml-aos-css' => '/assets/vendor/aos/aos.css',
+		'uzml-fontawesome-free' => '/assets/vendor/fontawesome-free/css/all.min.css',
+		'uzml-glightbox' => '/assets/vendor/glightbox/css/glightbox.min.css',
+ 		'uzml-swiper-bundle' => '/assets/vendor/swiper/swiper-bundle.min.css',
+		'uzml-main-style-css' => '/assets/css/main.css',
+	);
+
+	foreach( $styles as $id => $path ){
+		wp_enqueue_style( $id , get_template_directory_uri() . $path , array(), _S_VERSION );
+	}
+	
 	wp_enqueue_style( 'uzml-medilab-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'uzml-medilab-style', 'rtl', 'replace' );
+	
+	// ✅ Enqueue Theme scripts
+	$scripts = array(
+		'uzml-bootstrap-bundle' => '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js',
+		'uzml-aos' => '/assets/vendor/aos/aos.js',
+		'uzml-glightbox' => '/assets/vendor/glightbox/js/glightbox.min.js',
+		'uzml-purecounter_vanilla' => '/assets/vendor/purecounter/purecounter_vanilla.js',
+		'uzml-swiper-bundle' => '/assets/vendor/swiper/swiper-bundle.min.js',
+		'uzml-main-js' => '/assets/js/main.js',
+	);
 
-	wp_enqueue_script( 'uzml-medilab-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
+	foreach( $scripts as $id => $path ){
+		wp_enqueue_script( $id , get_template_directory_uri() . $path , array(), _S_VERSION, true );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'uzml_medilab_scripts' );
