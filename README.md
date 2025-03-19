@@ -4,14 +4,16 @@ This is a practice project where I converted the **Medilab** Bootstrap template 
 
 ## 🚀 Features
 - **Dynamic Content:** Integrated with **ACF (Advanced Custom Fields)** to manage content dynamically.
-- **Theme Customizer:** Implemented using **Kirki** for live preview and easy customization.
+- **Required Plugins:** Uses **TGM Plugin Activation** to manage and require essential plugins.
+- **ACF JSON Support:** Stores and loads ACF field groups from a JSON file for portability.
 - **Responsive Design:** Based on the **Bootstrap framework** for mobile-first, responsive layouts.
 - **Clean Code & Structure:** Organized code with clear folder structures for easy maintenance.
 
 ## 🛠️ Tools & Technologies
 - WordPress
 - ACF (Advanced Custom Fields)
-- Kirki Customizer Framework
+- TGM Plugin Activation
+- Contact Form 7
 - Bootstrap
 - HTML, CSS, JavaScript, PHP
 
@@ -22,7 +24,20 @@ This is a practice project where I converted the **Medilab** Bootstrap template 
    ```
 2. Copy the folder to your WordPress **themes** directory.
 3. Activate the theme from the WordPress **admin panel**.
-4. Import the required content or add new posts/pages.
+4. Install required plugins using **TGM Plugin Activation**:
+   - Advanced Custom Fields (ACF)
+   - Contact Form 7
+5. Ensure that ACF is activated, as the theme uses **ACF JSON** for custom fields.
+6. Import the required content or add new posts/pages.
+
+## 📂 ACF JSON Usage
+This theme includes an **acf-json** folder inside the theme directory. This feature allows ACF to automatically load field groups without requiring manual import.
+
+- **Location:** `wp-content/themes/medilab-wp-conversion/acf-json/`
+- **How It Works:**
+  - ACF automatically scans this folder for JSON files and loads the custom fields.
+  - Any changes made in ACF will be saved in this folder, ensuring portability across installations.
+  - No need to manually import/export field groups in the ACF settings.
 
 ## 📘 License
 This project uses the **Medilab** template by **BootstrapMade**, which is free for personal use with proper attribution. This conversion is for **learning and portfolio purposes only** — not for commercial use.
