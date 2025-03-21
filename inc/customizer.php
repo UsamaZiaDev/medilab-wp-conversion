@@ -10,52 +10,82 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-function uzml_medilab_customize_register( $wp_customize ) {
-	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
-	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
-	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
-	if ( isset( $wp_customize->selective_refresh ) ) {
-		$wp_customize->selective_refresh->add_partial(
-			'blogname',
-			array(
-				'selector'        => '.site-title a',
-				'render_callback' => 'uzml_medilab_customize_partial_blogname',
-			)
+   function uzml_medilab_customize_register( $wp_customize ){
+		// Define Sections
+		$sections = [
+			"uzml_custom_colors_scheme_section" =>  "Global Colors Scheme", 
+			"uzml_menu_custom_section" => "Menu Colors Scheme",
+		];
+			
+		// Add Custom Panel
+		$wp_customize->add_panel( "uzml_custom_panel", [
+			"title" => "Medilab Theme Panel",
+			"description" => "<p>Customize the Medilab theme</p>",
+			"priority" => 10,
+		]);
+
+		// Add Sections
+		foreach( $sections as $sections_id => $label ){
+			$wp_customize->add_section(  $sections_id,[
+				"title" => $label,
+				"description" => "<p>Customize the Medilab theme</p>",
+				"panel" => "uzml_custom_panel",
+			]);
+		}
+
+		// Define Color Settings
+		$color_settings = array(
+			"uzml_body_background_color" => ["#fff", "Body Background Color", "uzml_custom_colors_scheme_section"],
+			"uzml_brand_text_color" => ["#1977cc", "Brand Text Color", "uzml_custom_colors_scheme_section"],
+			"uzml_primary_color" => ["#1977cc", "Primary Color", "uzml_custom_colors_scheme_section"],
+			"uzml_text_color" => ["#444444", "Text Color", "uzml_custom_colors_scheme_section"],
+			"uzml_heading_color" => ["#2c4964", "Heading Color", "uzml_custom_colors_scheme_section"],
+			"uzml_anchor_color" => ["#1977cc", "Anchor Color", "uzml_custom_colors_scheme_section"],
+			"uzml_menu_color" => ["#1977cc", "Nav Primary Color", "uzml_menu_custom_section"],
+			"uzml_hover_border_color" => ["#1977cc", "Nav Hover Border Color", "uzml_menu_custom_section"],
 		);
-		$wp_customize->selective_refresh->add_partial(
-			'blogdescription',
-			array(
-				'selector'        => '.site-description',
-				'render_callback' => 'uzml_medilab_customize_partial_blogdescription',
-			)
-		);
-	}
-}
-add_action( 'customize_register', 'uzml_medilab_customize_register' );
 
-/**
- * Render the site title for the selective refresh partial.
- *
- * @return void
- */
-function uzml_medilab_customize_partial_blogname() {
-	bloginfo( 'name' );
-}
+		// Add Color Controls
+		foreach( $color_settings as $setting_key => [$color, $label, $sectionName] ){
+			$wp_customize->add_setting($setting_key, [
+				"default" => $color,
+				"transport" => "refresh",
+			]);
 
-/**
- * Render the site tagline for the selective refresh partial.
- *
- * @return void
- */
-function uzml_medilab_customize_partial_blogdescription() {
-	bloginfo( 'description' );
-}
+			$wp_customize->add_control( new WP_Customize_Color_Control( 
+				$wp_customize, 
+				$setting_key, 
+				[ 
+					"label" => __( $label, "uzml-medilab"),
+					"section" => $sectionName,
+					"settings" => $setting_key,
+				]
+			));
+		}
+   }
+   add_action("customize_register", "uzml_medilab_customize_register");
 
-/**
- * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
- */
-function uzml_medilab_customize_preview_js() {
-	wp_enqueue_script( 'uzml-medilab-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), _S_VERSION, true );
-}
-add_action( 'customize_preview_init', 'uzml_medilab_customize_preview_js' );
+   // Generate Dynamic CSS
+   function uzml_medilab_customize_styling(){
+		echo "<style type='text/css'>
+			:root { 
+				--background-color:  ".get_Theme_mod("uzml_body_background_color", "#fff").";
+				--default-color:  ".get_Theme_mod("uzml_text_color", "#444444").";
+				--heading-color: ".get_Theme_mod("uzml_heading_color", "#2c4964").";
+				--accent-color:  " . get_Theme_mod("uzml_primary_color", "#1977cc") .  " ;
+				--nav-color: ".get_Theme_mod("uzml_menu_color", "#1977cc")." !important;  
+				--nav-hover-color: ".get_Theme_mod("uzml_hover_border_color", "#1977cc")." !important; 
+			}
+			a{
+				color: ".get_Theme_mod("uzml_anker_color", "#1977cc")." !important;	
+			}	
+			header .sitename{
+				color: ".get_Theme_mod("uzml_brand_text_color", "#1977cc")." !important;	
+			}	
+			.menu-item a {
+				color: var(--nav-color) !important;
+			}
+		</style>";
+   }
+   add_action( 'wp_head', 'uzml_medilab_customize_styling' );
