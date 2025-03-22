@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 <?php
 /**
  * medilab-wp-conversion Theme Customizer
@@ -91,4 +90,3 @@
 		</style>";
    }
    add_action( 'wp_head', 'uzml_medilab_customize_styling' );
->>>>>>> customizer-theme-options
