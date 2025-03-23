@@ -4,6 +4,7 @@ This is a practice project where I converted the **Medilab** Bootstrap template 
 
 ## 🚀 Features
 - **Dynamic Content:** Integrated with **ACF (Advanced Custom Fields)** to manage content dynamically.
+- **Theme Customizer:** Implemented using the **WordPress Customizer API** to manage global theme settings.
 - **Required Plugins:** Uses **TGM Plugin Activation** to manage and require essential plugins.
 - **ACF JSON Support:** Stores and loads ACF field groups from a JSON file for portability.
 - **Responsive Design:** Based on the **Bootstrap framework** for mobile-first, responsive layouts.
@@ -12,6 +13,7 @@ This is a practice project where I converted the **Medilab** Bootstrap template 
 ## 🛠️ Tools & Technologies
 - WordPress
 - ACF (Advanced Custom Fields)
+- WordPress Customizer API
 - TGM Plugin Activation
 - Contact Form 7
 - Bootstrap
@@ -30,6 +32,15 @@ This is a practice project where I converted the **Medilab** Bootstrap template 
 5. Ensure that ACF is activated, as the theme uses **ACF JSON** for custom fields.
 6. Import the required content or add new posts/pages.
 
+## 🎨 Theme Customizer Integration
+This theme utilizes the **WordPress Customizer API** to allow users to manage global theme settings easily. The customizer settings include:
+
+- **Logo & Site Identity**: Upload custom logos, change site title, and description.
+- **Colors & Typography**: Modify global colors and fonts.
+- **Header & Footer Settings**: Customize header and footer elements.
+- **Layout Options**: Adjust container width, sidebar positions, and more.
+- **Custom CSS**: Add custom CSS directly from the Customizer.
+
 ## 📂 ACF JSON Usage
 This theme includes an **acf-json** folder inside the theme directory. This feature allows ACF to automatically load field groups without requiring manual import.
 
@@ -41,7 +52,6 @@ This theme includes an **acf-json** folder inside the theme directory. This feat
 
 - ### 📄 ACF JSON Usage  
  ![Add ACF JSON File](https://github.com/user-attachments/assets/b23fb6a5-6b07-431a-b38d-60c9070d1c75)
-
 
 ## 📘 License
 This project uses the **Medilab** template by **BootstrapMade**, which is free for personal use with proper attribution. This conversion is for **learning and portfolio purposes only** — not for commercial use.
