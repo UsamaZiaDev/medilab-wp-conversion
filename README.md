@@ -58,8 +58,8 @@ This project uses the **Medilab** template by **BootstrapMade**, which is free f
 
 Template URL: [Medilab Template](https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/)
 
-## 👨‍💻 Author
-**Usama Zia**  
-[Portfolio](https://usamazia.dev) 🚀  
-[GitHub Profile](https://github.com/UsamaZiaDev)
 
+## 👤 Author
+**Usama Zia**  
+🔗 Portfolio: [usamazia.dev](https://usamazia.dev/)  
+🐙 GitHub: [github.com/usamazia](https://github.com/usamazia)
